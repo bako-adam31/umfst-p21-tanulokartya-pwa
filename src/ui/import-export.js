@@ -1,5 +1,6 @@
 import * as db from "../db.js";
 import { el, toast, localToday } from "./app.js";
+import { appAssetUrl } from "./paths.js";
 const uid = () => crypto.randomUUID();
 export async function renderTransfer() {
   const [decks, cards] = await Promise.all([db.all("decks"), db.all("cards")]);
@@ -80,7 +81,7 @@ export async function renderTransfer() {
     exp.append(select, single);
   }
   const sampleDl = el("a", "Példa JSON letöltése", "text-link");
-  sampleDl.href = `${import.meta.env.BASE_URL}samples/tanulokartya.json`;
+  sampleDl.href = appAssetUrl("samples/tanulokartya.json", document.URL);
   sampleDl.download = "tanulokartya.json";
   exp.append(sampleDl);
   grid.append(imp, exp);
@@ -110,7 +111,7 @@ function download(obj, name) {
 }
 async function loadSample() {
   try {
-    const r = await fetch(`${import.meta.env.BASE_URL}samples/tanulokartya.json`);
+    const r = await fetch(appAssetUrl("samples/tanulokartya.json", document.URL));
     if (!r.ok) throw new Error("A mintafájl nem érhető el.");
     const value = await r.json();
     await processImport(value);

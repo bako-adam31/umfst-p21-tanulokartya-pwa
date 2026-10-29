@@ -3,7 +3,7 @@ import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 export default defineConfig({
-  base: '/umfst-p21-tanulokartya-pwa/',
+  base: process.env.GITHUB_PAGES ? "/umfst-p21-tanulokartya-pwa/" : "/",
   build: { manifest: true },
   plugins: [
     {
