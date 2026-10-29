@@ -5,7 +5,7 @@
 A Vizsgafelkészítő tanulókártyák egy telepíthető, offline-first PWA, amely SM-2 ismétlési algoritmussal segít a megtanult anyag tartós rögzítésében.
 
 - **GitHub repo:** `umfst-p21-tanulokartya-pwa`
-- **Élő demó (GitHub Pages):** 
+- **GitHub Pages:** `https://bako-adam31.github.io/umfst-p21-tanulokartya-pwa/`
 - **Mintapakli:** `samples/tanulokartya.json` 
 
 ## Funkciók
