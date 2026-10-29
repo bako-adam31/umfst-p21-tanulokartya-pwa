@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17324d" />
+    <meta
+      name="description"
+      content="Offline tanulókártyák és időzített ismétlés orvostanhallgatóknak."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <title>Vizsgafelkészítő tanulókártya</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Fő navigáció">
+        <a class="brand" href="#overview" aria-label="MedKártya kezdőlap"
+          ><span>Vizsgafelkészítő tanulókártya</span></a
+        >
+        <nav class="main-nav">
+          <button class="nav-link active" data-view="overview">
+            <span>◫</span> Áttekintés
+          </button>
+          <button class="nav-link" data-view="decks">
+            <span>▤</span> Paklik
+          </button>
+          <button class="nav-link" data-view="study">
+            <span>⌁</span> Tanulás <b id="nav-due" class="nav-count">0</b>
+          </button>
+          <button class="nav-link" data-view="stats">
+            <span>▥</span> Statisztika
+          </button>
+          <button class="nav-link" data-view="transfer">
+            <span>⇅</span> Import / export
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <span class="offline-indicator"><i></i> Offline használatra kész</span
+          >
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-spacer"></div>
+          <span class="today-label" id="today-label"></span
+          ><button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            aria-label="Navigáció megnyitása"
+          >
+            ☰
+          </button>
+        </header>
+        <div id="app" aria-live="polite" aria-busy="true">
+        </div>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </main>
+    </div>
+    <dialog id="modal" class="modal">
+      <form method="dialog">
+        <button class="modal-close" aria-label="Bezárás">×</button>
+      </form>
+      <div id="modal-content"></div>
+    </dialog>
+    <script type="module" src="./src/ui/app.js"></script>
+  </body>
+</html>
